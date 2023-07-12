@@ -1,0 +1,60 @@
+/*
+ * Copyright 2023 - present Maksym Ostroverkhov.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+plugins {
+    id "application"
+}
+
+description = "Netty VM sockets (linux vsock) support: perf test"
+
+dependencies {
+    implementation project(":netty-vmsocket")
+    compileOnly "org.slf4j:slf4j-api"
+
+    runtimeOnly "io.netty:netty-transport-native-epoll::${osdetector.classifier}"
+    runtimeOnly "ch.qos.logback:logback-classic"
+}
+
+task runServer(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.jauntsdn.netty.channel.vsock.example.server.Main"
+}
+
+task runClient(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = "com.jauntsdn.netty.channel.vsock.example.client.Main"
+}
+
+task serverScripts(type: CreateStartScripts) {
+    mainClass = "com.jauntsdn.netty.channel.vsock.example.server.Main"
+    applicationName = "${project.name}-server"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+}
+
+task clientScripts(type: CreateStartScripts) {
+    mainClass = "com.jauntsdn.netty.channel.vsock.example.client.Main"
+    applicationName = "${project.name}-client"
+    classpath = startScripts.classpath
+    outputDir = startScripts.outputDir
+}
+
+startScripts.dependsOn serverScripts
+startScripts.dependsOn clientScripts
+
+tasks.named("startScripts") {
+    enabled = false
+}

@@ -1,0 +1,19 @@
+subprojects {
+    apply plugin: "io.spring.dependency-management"
+
+    dependencyManagement {
+        imports {
+            mavenBom "io.netty:netty-bom:${nettyVersion}"
+            mavenBom "org.junit:junit-bom:${junitVersion}"
+        }
+        dependencies {
+            dependency "org.slf4j:slf4j-api:${slf4jVersion}"
+            dependency "ch.qos.logback:logback-classic:${logbackVersion}"
+            dependency "org.assertj:assertj-core:${assertjVersion}"
+        }
+
+        generatedPomCustomization {
+            enabled = false
+        }
+    }
+}
