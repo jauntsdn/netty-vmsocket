@@ -44,7 +44,7 @@ subprojects {
                         scm {
                             connection = "scm:git:https://github.com/jauntsdn/netty-vmsocket.git"
                             developerConnection = "scm:git:https://github.com/jauntsdn/netty-vmsocket.git"
-                            url = "https://github.com/jauntsdn/netty-vmsockets"
+                            url = "https://github.com/jauntsdn/netty-vmsocket"
                         }
 
                         versionMapping {
