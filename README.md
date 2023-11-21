@@ -19,13 +19,13 @@ Releases are published on MavenCentral, snapshots are available at oss.sonatype.
 ```groovy
 repositories {
     // mavenCentral()
-    repository {
-        url "https://oss.sonatype.org/content/repositories/snapshots"
-    }
+    // repository {
+    //     url "https://oss.sonatype.org/content/repositories/snapshots"
+    // }
 }
 
 dependencies {
-    implementation "com.jauntsdn.netty:netty-vmsocket:0.9.0-SNAPSHOT"
+    implementation "com.jauntsdn.netty:netty-vmsocket:0.9.0"
 }
 ```
 
