@@ -25,7 +25,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.jauntsdn.netty:netty-vmsocket:0.9.0"
+    implementation "com.jauntsdn.netty:netty-vmsocket:0.9.1"
 }
 ```
 
