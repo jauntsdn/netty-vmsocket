@@ -26,5 +26,5 @@ pluginManagement {
 rootProject.name = "netty-vmsocket-parent"
 
 include "netty-vmsocket"
-include "netty-vmsocket-example"
+include "netty-vmsocket-examples"
 

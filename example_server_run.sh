@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cd netty-vmsocket-example/build/install/netty-vmsocket-example/bin && ./netty-vmsocket-example-server
+cd netty-vmsocket-examples/build/install/netty-vmsocket-examples/bin && ./netty-vmsocket-examples-server

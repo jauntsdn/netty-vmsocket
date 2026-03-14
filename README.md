@@ -31,7 +31,7 @@ dependencies {
 
 ### examples
 
-`netty-vmsocket-example` showcases client and server APIs (requires kernel 5.6+ since vsock loopback CID addresses are used). 
+`netty-vmsocket-examples` showcases client and server APIs (requires kernel 5.6+ since vsock loopback CID addresses are used). 
 
 ```shell script
 
